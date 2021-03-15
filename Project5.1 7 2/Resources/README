@@ -1,0 +1,30 @@
+The purpose of our program is to display animations.
+
+Views:
+- We added another interface in our cs3500.animator.view called IView that
+extends IAnimationView and ActionListener. This interface contains a secActionListener method,
+a makeVisible method, and a setTick method.
+- We created the InteractiveView class that extends our VisualView class and
+implements the IView interface next. We created various JButton fields to indicate
+different user commands when running the animation (start, resume, pause, restart)
+
+Controller:
+- We created an interface called IController which contains a run method.
+- All of the views have the run method to execute and render the appropriate animations.
+- We created an InteractiveController class that implements IController and ActionListener.
+This class contains fields that take in the view and timer. The actionPerformed method
+ registers a button click and changes the animation accordingly.
+- We created a Controller class that implements IController. It contains fields that take in the
+view. All the views except for the InteractiveView class use this Controller.
+
+We made a BubbleSort class that runs an animation using a bubble sort algorithm.
+
+We also added in an IViewModel interface which is a readable version of the IAnimatorModel.
+We passed in the IViewModel instead of the IAnimatorModel in the views so that the view cannot
+mutate the model.
+
+We added another ViewType to our Enum representing an InteractiveView.
+
+Changes:
+- In our Excellence class we checked if the view type is of a certain view, then we make the
+controller run the appropriate commands to render the animation.
